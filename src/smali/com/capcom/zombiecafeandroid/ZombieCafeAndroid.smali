@@ -560,6 +560,12 @@
 .method public static native PurchaseAndroidToxin(I)V
 .end method
 
+.method public static native DebugAddMoney(I)V
+.end method
+
+.method public static native DebugSetToxin(I)V
+.end method
+
 .method public static native StartNotifications()V
 .end method
 
@@ -4849,6 +4855,40 @@
     sget-object v2, Lcom/capcom/zombiecafeandroid/ZombieCafeAndroid;->mGLView:Landroid/opengl/GLSurfaceView;
 
     invoke-virtual {v1, v2, v0}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    new-instance v1, Landroid/widget/Button;
+
+    invoke-direct {v1, p0}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
+
+    const-string v2, "D"
+
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+
+    new-instance v2, Landroid/widget/RelativeLayout$LayoutParams;
+
+    const/16 v3, 0x30
+
+    const/16 v4, 0x30
+
+    invoke-direct {v2, v3, v4}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
+
+    const/16 v3, 0xc
+
+    invoke-virtual {v2, v3}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V
+
+    const/16 v3, 0xb
+
+    invoke-virtual {v2, v3}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V
+
+    new-instance v3, Lcom/capcom/zombiecafeandroid/DebugMenuButtonListener;
+
+    invoke-direct {v3}, Lcom/capcom/zombiecafeandroid/DebugMenuButtonListener;-><init>()V
+
+    invoke-virtual {v1, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    sget-object v0, Lcom/capcom/zombiecafeandroid/ZombieCafeAndroid;->e:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {v0, v1, v2}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     sget-object v0, Lcom/capcom/zombiecafeandroid/ZombieCafeAndroid;->e:Landroid/widget/RelativeLayout;
 

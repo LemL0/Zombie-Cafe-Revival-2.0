@@ -14,6 +14,68 @@
 
 
 typedef jint (*jni_OnLoad)(JavaVM* vm, void* reserved);
+
+static constexpr uintptr_t APP_HOLDER_OFFSET = 0x001daf80;
+static constexpr uintptr_t ZOMBIE_CAFE_TOXIN_OFFSET = 0x000000b8;
+static constexpr uintptr_t ZOMBIE_CAFE_MONEY_OFFSET = 0x000001ac;
+static constexpr int32_t DEBUG_MAX_TOXIN = 999;
+static constexpr int32_t DEBUG_MAX_MONEY = 999999;
+
+static void* getZombieCafeInstance() {
+  uintptr_t base = reinterpret_cast<uintptr_t>(Memory::getBaseAddress());
+  auto app = *reinterpret_cast<uintptr_t*>(base + APP_HOLDER_OFFSET);
+  if (app == 0) {
+    return nullptr;
+  }
+
+  auto game = *reinterpret_cast<uintptr_t*>(app + 0x4);
+  if (game == 0) {
+    return nullptr;
+  }
+
+  return reinterpret_cast<void*>(game);
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_capcom_zombiecafeandroid_ZombieCafeAndroid_DebugAddMoney(JNIEnv*, jclass, jint amount) {
+  auto cafe = reinterpret_cast<uint8_t*>(getZombieCafeInstance());
+  if (cafe == nullptr) {
+    LOGI("DebugAddMoney skipped because ZombieCafe instance is not ready");
+    return;
+  }
+
+  auto money = reinterpret_cast<int32_t*>(cafe + ZOMBIE_CAFE_MONEY_OFFSET);
+  int64_t next = static_cast<int64_t>(*money) + static_cast<int64_t>(amount);
+
+  if (amount >= DEBUG_MAX_MONEY || next > DEBUG_MAX_MONEY) {
+    next = DEBUG_MAX_MONEY;
+  } else if (next < 0) {
+    next = 0;
+  }
+
+  *money = static_cast<int32_t>(next);
+  LOGI("DebugAddMoney set money to %d", *money);
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_capcom_zombiecafeandroid_ZombieCafeAndroid_DebugSetToxin(JNIEnv*, jclass, jint amount) {
+  auto cafe = reinterpret_cast<uint8_t*>(getZombieCafeInstance());
+  if (cafe == nullptr) {
+    LOGI("DebugSetToxin skipped because ZombieCafe instance is not ready");
+    return;
+  }
+
+  int32_t next = amount;
+  if (next > DEBUG_MAX_TOXIN) {
+    next = DEBUG_MAX_TOXIN;
+  } else if (next < 0) {
+    next = 0;
+  }
+
+  *reinterpret_cast<int32_t*>(cafe + ZOMBIE_CAFE_TOXIN_OFFSET) = next;
+  LOGI("DebugSetToxin set toxin to %d", next);
+}
+
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved) {
   LOGI("Zombie Cafe Extension Loaded!");
   int base = (int)Memory::getBaseAddress(); 

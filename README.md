@@ -4,6 +4,10 @@ An effort to reverse engineer and revive the game, reimplementing online service
 
 Check out [my article](https://airyz.xyz/p/zombie-cafe-revival/) for some more detail in to the technical side of things!
 
+## Download
+
+Latest debug-menu APK: [ZombieCafe-debug-menu.apk](release/ZombieCafe-debug-menu.apk)
+
 ## Building
 
 ### Requirements

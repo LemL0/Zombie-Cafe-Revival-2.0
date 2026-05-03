@@ -531,6 +531,8 @@ func GetCopyFiles() []string {
 		"smali/com/capcom/zombiecafeandroid/ReloadTask.smali",
 		"smali/com/capcom/zombiecafeandroid/SmurfsGLSurfaceView.smali",
 		"smali/com/capcom/zombiecafeandroid/SoundManager.smali",
+		"smali/com/capcom/zombiecafeandroid/DebugMenuButtonListener.smali",
+		"smali/com/capcom/zombiecafeandroid/DebugMenuItemClickListener.smali",
 		"smali/com/capcom/zombiecafeandroid/URLManager.smali",
 		"smali/com/capcom/zombiecafeandroid/ZombieCafeAndroid.smali",
 		"smali/com/capcom/zombiecafeandroid/a.smali",
