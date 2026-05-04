@@ -8,7 +8,7 @@ My intention with this fork is to keep the original revival work intact while ad
 
 ## Download
 
-Latest APK from this fork: [ZombieCafe-debug-menu.apk](release/ZombieCafe-debug-menu.apk)
+Latest APK from this fork: [ZombieCafeRevival-2.0-ModMenu-v1.1.apk](release/ZombieCafeRevival-2.0-ModMenu-v1.1.apk)
 
 Current release: v1.1
 
@@ -94,4 +94,5 @@ jarsigner -verbose -keystore debug.keystore -storepass zombiecafe ./build/out/ou
 
 adb install -r ./build/out/out.apk
 ```
+
 
