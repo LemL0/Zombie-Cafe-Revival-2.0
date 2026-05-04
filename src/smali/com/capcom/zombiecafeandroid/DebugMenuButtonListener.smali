@@ -25,11 +25,11 @@
 
     invoke-direct {v1, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const-string v2, "Debug"
+    const-string v2, "Mod Menu"
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const/4 v2, 0x5
+    const/4 v2, 0x7
 
     new-array v2, v2, [Ljava/lang/CharSequence;
 
@@ -60,6 +60,18 @@
     const/4 v3, 0x4
 
     const-string v4, "Max money"
+
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x5
+
+    const-string v4, "+10k XP"
+
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x6
+
+    const-string v4, "Max XP"
 
     aput-object v4, v2, v3
 

@@ -57,6 +57,20 @@
 
     goto :goto_0
 
+    :pswitch_5
+    const/16 v0, 0x2710
+
+    invoke-static {v0}, Lcom/capcom/zombiecafeandroid/ZombieCafeAndroid;->DebugAddXp(I)V
+
+    goto :goto_0
+
+    :pswitch_6
+    const v0, 0xf423f
+
+    invoke-static {v0}, Lcom/capcom/zombiecafeandroid/ZombieCafeAndroid;->DebugSetXp(I)V
+
+    goto :goto_0
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -64,5 +78,7 @@
         :pswitch_2
         :pswitch_3
         :pswitch_4
+        :pswitch_5
+        :pswitch_6
     .end packed-switch
 .end method

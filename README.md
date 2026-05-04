@@ -4,13 +4,13 @@
 
 This is my fork of [Airyzz/zombie-cafe-revival](https://github.com/Airyzz/zombie-cafe-revival). Huge thanks to Airyzz for reverse engineering and reviving Zombie Cafe, and for making the original project available.
 
-My intention with this fork is to keep the original revival work intact while adding a small optional mod menu for easier testing and casual gameplay in BlueStacks/Android. More updates might come later, including work on fixing crashes and improving stability.
+My intention with this fork is to keep the original revival work intact while adding a small optional mod menu for easier testing and casual gameplay in BlueStacks/Android. I also started bringing in stability fixes so the game crashes less on newer Android/BlueStacks setups.
 
 ## Download
 
 Latest APK from this fork: [ZombieCafe-debug-menu.apk](release/ZombieCafe-debug-menu.apk)
 
-## Mod Menu
+## What This Fork Adds
 
 This fork adds a small in-game mod menu with:
 
@@ -19,6 +19,10 @@ This fork adds a small in-game mod menu with:
 - +1 money
 - +10k money
 - Max money
+- +10k XP
+- Max XP
+
+It also includes native stability fixes ported from [edbuildingstuff/zombie-cafe-revival](https://github.com/edbuildingstuff/zombie-cafe-revival), including Scudo/heap crash fixes and an MD5 save-hashing off-by-one patch. Thanks to edbuildingstuff for tracking those crashes down and documenting the fixes.
 
 ![Mod menu screenshot](docs/mod-menu.png)
 

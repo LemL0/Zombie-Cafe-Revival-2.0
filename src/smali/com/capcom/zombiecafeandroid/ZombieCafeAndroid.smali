@@ -563,7 +563,13 @@
 .method public static native DebugAddMoney(I)V
 .end method
 
+.method public static native DebugAddXp(I)V
+.end method
+
 .method public static native DebugSetToxin(I)V
+.end method
+
+.method public static native DebugSetXp(I)V
 .end method
 
 .method public static native StartNotifications()V
