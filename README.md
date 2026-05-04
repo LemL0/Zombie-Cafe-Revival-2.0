@@ -1,4 +1,4 @@
-![Zombie Cafe Revival banner](/src/assets/images/banner.png)
+﻿![Zombie Cafe Revival banner](/src/assets/images/banner.png)
 
 # Zombie Cafe Revival 2.0
 
@@ -9,6 +9,23 @@ My intention with this fork is to keep the original revival work intact while ad
 ## Download
 
 Latest APK from this fork: [ZombieCafe-debug-menu.apk](release/ZombieCafe-debug-menu.apk)
+
+Current release: v1.1
+
+## Tested Setup
+
+This fork is currently tested on Windows PC using BlueStacks Android 11 64-bit.
+
+The APK may not install or run correctly on every real Android phone or tablet. Zombie Cafe uses old 32-bit ARM native libraries, and many modern Android devices now require or prefer `arm64-v8a` support. Because this project does not currently include a native `arm64-v8a` build of the original game library, some devices can fail with ABI/compatibility errors.
+
+## Installing On BlueStacks
+
+1. Download the APK from the release page or from the `release` folder.
+2. Open BlueStacks on Windows.
+3. Drag the APK into the BlueStacks window, or use BlueStacks' APK install option.
+4. Launch Zombie Cafe after the install finishes.
+
+If you already have Zombie Cafe installed, installing this APK with the same package name can replace the existing app. Make a BlueStacks backup first if you want to protect your save.
 
 ## What This Fork Adds
 
@@ -25,6 +42,13 @@ This fork adds a small in-game mod menu with:
 It also includes native stability fixes ported from [edbuildingstuff/zombie-cafe-revival](https://github.com/edbuildingstuff/zombie-cafe-revival), including Scudo/heap crash fixes and an MD5 save-hashing off-by-one patch. Thanks to edbuildingstuff for tracking those crashes down and documenting the fixes.
 
 ![Mod menu screenshot](docs/mod-menu.png)
+
+## Known Compatibility Notes
+
+- Tested mainly on BlueStacks Android 11 64-bit for Windows.
+- Real Android device support can vary.
+- Devices that require `arm64-v8a` only may not be able to install or run this APK.
+- This fork currently keeps the original 32-bit native game library setup.
 
 ## Original Project
 
@@ -70,3 +94,4 @@ jarsigner -verbose -keystore debug.keystore -storepass zombiecafe ./build/out/ou
 
 adb install -r ./build/out/out.apk
 ```
+
